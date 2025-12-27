@@ -6,11 +6,11 @@
   <default revision="refs/tags/android-11.0.0_r48"
            remote="aosp"
            sync-j="4" />
-
   <superproject name="platform/superproject" remote="aosp"/>
   <contactinfo bugurl="go/repo-bug" />
-
-  <project path="build/make" name="platform/build" groups="pdk" >
+  <project name="android_RKDocs_android" path="RKDocs/android" remote="github" revision="096470e162568e88b1f6d09acd850aa394223941"/>
+  <project name="android_RKDocs_common" path="RKDocs/common" remote="github" revision="e82bedfdaaa80ae64b2d2733de205193e103470b"/>
+  <project path="build/make" name="android_build_make" remote="github" revision="24b771a3286ef15aed92313e5fe12b1307a316ca">
     <copyfile src="core/root.mk" dest="Makefile" />
     <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
     <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
@@ -19,21 +19,24 @@
     <linkfile src="target" dest="build/target" />
     <linkfile src="tools" dest="build/tools" />
   </project>
+  <project name="android_RKTools" path="RKTools" remote="github" revision="33f4603a28d2025230cb05f13cdfb9e3c32746f7"/>
   <project path="build/blueprint" name="platform/build/blueprint" groups="pdk,tradefed" />
-  <project path="build/soong" name="platform/build/soong" groups="pdk,tradefed" >
+  <project path="build/soong" name="android_build_soong" remote="github" revision="52be59ca89349bd77ee6ceeb0e3691e573cd5953" >
     <linkfile src="root.bp" dest="Android.bp" />
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
+  <project name="linux" path="kernel" remote="github" revision="41c32179c4b5de033c6f94a2ac80c77c35a378a5"/>
   <project path="art" name="platform/art" groups="pdk" />
-  <project path="bionic" name="platform/bionic" groups="pdk" />
-  <project path="bootable/recovery" name="platform/bootable/recovery" groups="pdk" />
+  <project name="android_bionic" path="bionic" remote="github" revision="2ef550b74e1a2cb25e9a990eb1f6ed07da813720"/>
+  <project path="bootable/recovery" name="android_bootable_recovery" remote="github" revision="5ea77a99f252383ff5ed30087acf0181f5b57f7f" />
   <project path="compatibility/cdd" name="platform/compatibility/cdd" groups="pdk" />
   <project path="cts" name="platform/cts" groups="cts,pdk-cw-fs,pdk-fs" />
   <project path="dalvik" name="platform/dalvik" groups="pdk-cw-fs,pdk-fs" />
   <project path="developers/build" name="platform/developers/build" groups="developers,pdk" />
   <project path="developers/demos" name="platform/developers/demos" groups="developers" />
   <project path="developers/samples/android" name="platform/developers/samples/android" groups="developers" />
-  <project path="development" name="platform/development" groups="developers,pdk-cw-fs,pdk-fs" />
+  <project name="android_development" path="development" remote="github" revision="72679d3e22ac2e3531daef94d790021caf3aab6c"/>
+
   <project path="device/amlogic/yukawa" name="device/amlogic/yukawa" groups="device,yukawa,pdk" />
   <project path="device/amlogic/yukawa-kernel" name="device/amlogic/yukawa-kernel" groups="device,yukawa,pdk" clone-depth="2" />
   <project path="device/common" name="device/common" groups="pdk-cw-fs,pdk" />
@@ -98,6 +101,31 @@
   <project path="device/sample" name="device/sample" groups="pdk" />
   <project path="device/ti/beagle_x15" name="device/ti/beagle-x15" groups="device,beagle_x15,pdk" />
   <project path="device/ti/beagle_x15-kernel" name="device/ti/beagle-x15-kernel" groups="device,beagle_x15,pdk" clone-depth="1" />
+  <project name="android_device_lumifyx_common" path="device/lumifyx/common" remote="github" revision="e02e3d548d953e0549a2a925f6e18d438c6f58a9">
+    <copyfile dest=".classpath" src=".classpath"/>
+    <copyfile dest="mkimage.sh" src="mkimage.sh"/>
+    <copyfile dest="javaenv.sh" src="javaenv.sh"/>
+    <copyfile dest="build.sh" src="build/rockchip/build.sh"/>
+    <copyfile dest="mkimage_ab.sh" src="mkimage_ab.sh"/>
+  </project>
+  <project name="android_device_lumifyx_rk356x_box" path="device/lumifyx/rk356x_box" remote="github" revision="c88d96de3e35531d174d34a7516920a69e0b8e77"/>
+  <project name="android_external_abc" path="external/abc" remote="github" revision="59952887d96231c09fc2bd1e0be0659f40cd40ab"/>
+  <project name="android_external_camera_engine_rkaiq" path="external/camera_engine_rkaiq" remote="github" revision="4a2ad0f46a8a96365ea7ad371ebbf121dfb69f66"/>
+  <project name="android_external_e2fsprogs" path="external/e2fsprogs" remote="github" revision="09e3457a5c3998687e452cafb150b30a9c5d667f"/>
+  <project name="android_external_f2fs-tools" path="external/f2fs-tools" remote="github" revision="733052f00ed887cba74d37f324934852897e1bcd"/>
+  <project name="android_external_io" path="external/io" remote="github" revision="19d7f773d49d74b6dd05b90e2e7ad4fd6a85264b"/>
+  <project name="android_external_iperf3" path="external/iperf3" remote="github" revision="0f3c1ef2d96ca2e914749e1a5ff423bd403bb7fc"/>
+  <project name="android_external_libdrm" path="external/libdrm" remote="github" revision="b68d87a4c9bc1deef2c58ccffcb5cbdb63d978ed"/>
+  <project name="android_external_ntfs-3g" path="external/ntfs-3g" remote="github" revision="f66254d9d2eef0fa145a8639a128a8e61f6b6d37"/>
+  <project name="android_external_rk_tee_user" path="external/rk_tee_user" remote="github" revision="95d656a109a2d142a35fa20ffa4c5922037c97ad"/>
+  <project name="android_external_rkaiq_tool_server" path="external/rkaiq_tool_server" remote="github" revision="884a93fb05376e4b9c357a63c3de59fc3320ac23"/>
+  <project name="android_external_rktoolbox" path="external/rktoolbox" remote="github" revision="1ffae9357a70a96a526e38b94579d9dec373c7c5"/>
+  <project name="android_external_skia" path="external/skia" remote="github" revision="a2b6d900e625c23a3ea005fa3edc6b2d5e3fcf24"/>
+  <project name="android_external_speex" path="external/speex" remote="github" revision="1e66f39d05bbb44bf62352561caa93a76d420bde"/>
+  <project name="android_external_tinyalsa" path="external/tinyalsa" remote="github" revision="dd3c500b4f116c46a7ca03db7b92af565fd7a7b1"/>
+  <project name="android_external_usb_modeswitch" path="external/usb_modeswitch" remote="github" revision="9857c093db449e24a1b4ce89557bfe53bb0785d6"/>
+  <project name="android_external_wpa_supplicant_8" path="external/wpa_supplicant_8" remote="github" revision="580a00dc450c35e84b2f80b0580768eca3b05253"/>
+
   <project path="external/aac" name="platform/external/aac" groups="pdk" />
   <project path="external/adeb" name="platform/external/adeb" groups="pdk" />
   <project path="external/adhd" name="platform/external/adhd" groups="pdk" />
@@ -162,7 +190,6 @@
   <project path="external/drrickorang" name="platform/external/drrickorang" groups="pdk" />
   <project path="external/dtc" name="platform/external/dtc" groups="pdk"/>
   <project path="external/dynamic_depth" name="platform/external/dynamic_depth" groups="pdk" />
-  <project path="external/e2fsprogs" name="platform/external/e2fsprogs" groups="pdk" />
   <project path="external/easymock" name="platform/external/easymock" groups="pdk" />
   <project path="external/eigen" name="platform/external/eigen" groups="pdk" />
   <project path="external/elfutils" name="platform/external/elfutils" groups="pdk" />
@@ -171,7 +198,6 @@
   <project path="external/ethtool" name="platform/external/ethtool" groups="pdk" />
   <project path="external/exoplayer" name="platform/external/exoplayer" groups="pdk" />
   <project path="external/expat" name="platform/external/expat" groups="pdk" />
-  <project path="external/f2fs-tools" name="platform/external/f2fs-tools" groups="pdk" />
   <project path="external/fastrpc" name="platform/external/fastrpc" groups="pdk" />
   <project path="external/fdlibm" name="platform/external/fdlibm" groups="pdk" />
   <project path="external/fec" name="platform/external/fec" groups="pdk" />
@@ -224,7 +250,6 @@
   <project path="external/ImageMagick" name="platform/external/ImageMagick" groups="pdk" />
   <project path="external/image_io" name="platform/external/image_io" groups="pdk" />
   <project path="external/ims" name="platform/external/ims" groups="pdk" />
-  <project path="external/iperf3" name="platform/external/iperf3" groups="pdk" />
   <project path="external/iproute2" name="platform/external/iproute2" groups="pdk" />
   <project path="external/ipsec-tools" name="platform/external/ipsec-tools" groups="pdk" />
   <project path="external/iptables" name="platform/external/iptables" groups="pdk" />
@@ -264,7 +289,6 @@
   <project path="external/libcxxabi" name="platform/external/libcxxabi" groups="pdk" />
   <project path="external/libdaemon" name="platform/external/libdaemon" groups="pdk" />
   <project path="external/libdivsufsort" name="platform/external/libdivsufsort" groups="pdk" />
-  <project path="external/libdrm" name="platform/external/libdrm" groups="pdk" />
   <project path="external/libepoxy" name="platform/external/libepoxy" groups="pdk" />
   <project path="external/libese" name="platform/external/libese" groups="pdk" />
   <project path="external/libevent" name="platform/external/libevent" groups="pdk" />
@@ -403,7 +427,6 @@
   <project path="external/sfntly" name="platform/external/sfntly" groups="pdk,qcom_msm8x26" />
   <project path="external/shaderc/spirv-headers" name="platform/external/shaderc/spirv-headers" groups="pdk" />
   <project path="external/shflags" name="platform/external/shflags" groups="pdk" />
-  <project path="external/skia" name="platform/external/skia" groups="pdk,qcom_msm8x26" />
   <project path="external/skqp" name="platform/external/skqp" groups="cts,pdk" clone-depth="1" />
   <project path="external/sl4a" name="platform/external/sl4a" groups="pdk" />
   <project path="external/slf4j" name="platform/external/slf4j" groups="pdk" />
@@ -411,7 +434,6 @@
   <project path="external/snakeyaml" name="platform/external/snakeyaml" groups="pdk" />
   <project path="external/sonic" name="platform/external/sonic" groups="pdk" />
   <project path="external/sonivox" name="platform/external/sonivox" groups="pdk" />
-  <project path="external/speex" name="platform/external/speex" groups="pdk" />
   <project path="external/sqlite" name="platform/external/sqlite" groups="pdk" />
   <project path="external/squashfs-tools" name="platform/external/squashfs-tools" groups="pdk" />
   <project path="external/strace" name="platform/external/strace" groups="pdk" />
@@ -422,7 +444,6 @@
   <project path="external/tcpdump" name="platform/external/tcpdump" groups="pdk" />
   <project path="external/tensorflow" name="platform/external/tensorflow" groups="pdk" />
   <project path="external/testng" name="platform/external/testng" groups="pdk" />
-  <project path="external/tinyalsa" name="platform/external/tinyalsa" groups="pdk" />
   <project path="external/tinycompress" name="platform/external/tinycompress" groups="pdk" />
   <project path="external/tinyxml" name="platform/external/tinyxml" groups="pdk" />
   <project path="external/tinyxml2" name="platform/external/tinyxml2" groups="pdk" />
@@ -448,7 +469,6 @@
   <project path="external/wayland-protocols" name="platform/external/wayland-protocols" groups="pdk" />
   <project path="external/webp" name="platform/external/webp" groups="pdk,qcom_msm8x26" />
   <project path="external/webrtc" name="platform/external/webrtc" groups="pdk" />
-  <project path="external/wpa_supplicant_8" name="platform/external/wpa_supplicant_8" groups="pdk" />
   <project path="external/wycheproof" name="platform/external/wycheproof" groups="pdk" />
   <project path="external/xmp_toolkit" name="platform/external/xmp_toolkit" groups="pdk" />
   <project path="external/xz-embedded" name="platform/external/xz-embedded" groups="pdk" />
@@ -458,12 +478,15 @@
   <project path="external/zlib" name="platform/external/zlib" groups="pdk" />
   <project path="external/zopfli" name="platform/external/zopfli" groups="pdk" />
   <project path="external/zxing" name="platform/external/zxing" groups="pdk" />
-  <project path="frameworks/av" name="platform/frameworks/av" groups="pdk" />
-  <project path="frameworks/base" name="platform/frameworks/base" groups="pdk-cw-fs,pdk-fs" />
+  <project name="android_frameworks_av" path="frameworks/av" remote="github" revision="615e34dafeb9f63a70db0dcf33ab92abdf463a33"/>
+  <project name="android_frameworks_base" path="frameworks/base" remote="github" revision="066dda4ef476ec9cb34da36b297d1b7d70e008af"/>
+  <project name="android_frameworks_ex" path="frameworks/ex" remote="github" revision="ba33983130c448711936d149c649422b03f7af86"/>
+  <project name="android_frameworks_native" path="frameworks/native" remote="github" revision="8fc402163c8cf8580e72a32ab200b966705ab749"/>
+  <project name="android_frameworks_opt_net_ethernet" path="frameworks/opt/net/ethernet" remote="github" revision="4cea315effc6d31b9122b19d18a0d6a7b46a8930"/>
+  <project name="android_frameworks_opt_net_wifi" path="frameworks/opt/net/wifi" remote="github" revision="9067fd4f931392a6935ae042c492bb0ff32db542"/>
   <project path="frameworks/compile/libbcc" name="platform/frameworks/compile/libbcc" groups="pdk" />
   <project path="frameworks/compile/mclinker" name="platform/frameworks/compile/mclinker" groups="pdk" />
   <project path="frameworks/compile/slang" name="platform/frameworks/compile/slang" groups="pdk" />
-  <project path="frameworks/ex" name="platform/frameworks/ex" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/hardware/interfaces" name="platform/frameworks/hardware/interfaces" groups="pdk" />
   <project path="frameworks/layoutlib" name="platform/frameworks/layoutlib" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/libs/systemui" name="platform/frameworks/libs/systemui" groups="pdk-cw-fs,pdk-fs" />
@@ -473,7 +496,6 @@
   <project path="frameworks/minikin" name="platform/frameworks/minikin" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/ml" name="platform/frameworks/ml" groups="pdk" />
   <project path="frameworks/multidex" name="platform/frameworks/multidex" groups="pdk-cw-fs,pdk-fs" />
-  <project path="frameworks/native" name="platform/frameworks/native" groups="pdk" />
   <project path="frameworks/opt/bitmap" name="platform/frameworks/opt/bitmap" groups="pdk-fs" />
   <project path="frameworks/opt/calendar" name="platform/frameworks/opt/calendar" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/opt/car/services" name="platform/frameworks/opt/car/services" groups="pdk-fs" />
@@ -481,10 +503,8 @@
   <project path="frameworks/opt/chips" name="platform/frameworks/opt/chips" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/opt/colorpicker" name="platform/frameworks/opt/colorpicker" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/opt/localepicker" name="platform/frameworks/opt/localepicker" />
-  <project path="frameworks/opt/net/ethernet" name="platform/frameworks/opt/net/ethernet" groups="pdk-fs" />
   <project path="frameworks/opt/net/ims" name="platform/frameworks/opt/net/ims" groups="frameworks_ims,pdk-cw-fs,pdk-fs" />
   <project path="frameworks/opt/net/voip" name="platform/frameworks/opt/net/voip" groups="pdk-cw-fs,pdk-fs" />
-  <project path="frameworks/opt/net/wifi" name="platform/frameworks/opt/net/wifi" groups="pdk" />
   <project path="frameworks/opt/photoviewer" name="platform/frameworks/opt/photoviewer" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/opt/setupwizard" name="platform/frameworks/opt/setupwizard" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/opt/telephony" name="platform/frameworks/opt/telephony" groups="pdk" />
@@ -493,8 +513,44 @@
   <project path="frameworks/opt/vcard" name="platform/frameworks/opt/vcard" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/rs" name="platform/frameworks/rs" groups="pdk" />
   <project path="frameworks/wilhelm" name="platform/frameworks/wilhelm" groups="pdk-cw-fs,pdk-fs" />
-  <project path="hardware/broadcom/libbt" name="platform/hardware/broadcom/libbt" groups="pdk" />
-  <project path="hardware/broadcom/wlan" name="platform/hardware/broadcom/wlan" groups="pdk,broadcom_wlan" />
+  <project name="android_hardware_broadcom_libbt" path="hardware/broadcom/libbt" remote="github" revision="3ce1c7c1dfa6585ee16ffa9cc043f83dc37bf708"/>
+  <project name="android_hardware_broadcom_wlan" path="hardware/broadcom/wlan" remote="github" revision="da58a38881fea8dc63036c4e3794f9275a452254"/>
+  <project name="android_hardware_interfaces" path="hardware/interfaces" remote="github" revision="12a83cb340db020037a581c5d1eaaa268167d7f0"/>
+  <project name="android_hardware_libhardware" path="hardware/libhardware" remote="github" revision="91b34b85d18059b7a3c6b5a46b776463dc287521"/>
+  <project name="android_hardware_realtek" path="hardware/realtek" remote="github" revision="311445624f8c20033cbc3e07fcb2200522437837"/>
+  <project name="android_hardware_rockchip_audio" path="hardware/rockchip/audio" remote="github" revision="568b3e5b7e95ac0dd485920b83b8bd1aec714ced"/>
+  <project name="android_hardware_rockchip_bootctrl" path="hardware/rockchip/bootctrl" remote="github" revision="779c6fac58123a63dd7c764b5434a279c43a440e"/>
+  <project name="android_hardware_rockchip_camera" path="hardware/rockchip/camera" remote="github" revision="a3143b57d5ea7726754d9148fff99dfeb794e9e0"/>
+  <project name="android_hardware_rockchip_camera_engine_rkisp" path="hardware/rockchip/camera_engine_rkisp" remote="github" revision="515a5523d305349087b297cdb1642826d6481817"/>
+  <project name="android_hardware_rockchip_drmservice" path="hardware/rockchip/drmservice" remote="github" revision="1656694778441a19d8c5a60ed5ae8d206a2e92b4"/>
+  <project name="android_hardware_rockchip_fastbootd" path="hardware/rockchip/fastbootd" remote="github" revision="f3d98230ec7094e1f33adb9752030fd83a2c20a2"/>
+  <project name="android_hardware_rockchip_gatekeeper" path="hardware/rockchip/gatekeeper" remote="github" revision="7905fb9b7e82538e2c1bbfc2375ea80953fafbdc"/>
+  <project name="android_hardware_rockchip_hdmicec" path="hardware/rockchip/hdmicec" remote="github" revision="f9a8382c0c75621be36f0e5bc43241ca661c2a25"/>
+  <project name="android_hardware_rockchip_helper" path="hardware/rockchip/helper" remote="github" revision="8ebaeb1c03ace90f8c5fc8caa5a7ebf8c19fc229"/>
+  <project name="android_hardware_rockchip_hwcomposer_drmhwc" path="hardware/rockchip/hwcomposer/drmhwc" remote="github" revision="882bad30d8468b66530c38f8fe8232dfd4033249"/>
+  <project name="android_hardware_rockchip_hwcomposer_drmhwc2" path="hardware/rockchip/hwcomposer/drmhwc2" remote="github" revision="11d2bee6c53649663b8a4e2c3fdd5200f3ece4b1"/>
+  <project name="android_hardware_rockchip_hwcomposer_einkhwc" path="hardware/rockchip/hwcomposer/einkhwc" remote="github" revision="915d55b800577e6bb02f4f7be7e25013a1c2a0bd"/>
+  <project name="android_hardware_rockchip_keymaster4" path="hardware/rockchip/keymaster4" remote="github" revision="cb0fe218295698a4d8774d7d5d7c7b61d1fe0610"/>
+  <project name="android_hardware_rockchip_libbaseparameter" path="hardware/rockchip/libbaseparameter" remote="github" revision="80bb7b91a9e6108e805ecb324d0a3cf887c17695"/>
+  <project name="android_hardware_rockchip_libgralloc_bifrost" path="hardware/rockchip/libgralloc/bifrost" remote="github" revision="793311d716c61b169ec608ff77d155c40bea6172"/>
+  <project name="android_hardware_rockchip_libgralloc_midgard" path="hardware/rockchip/libgralloc/midgard" remote="github" revision="3aa88bd0a31d77d0f1c5735d836f09d556ac43d4"/>
+  <project name="android_hardware_rockchip_libgralloc_utgard" path="hardware/rockchip/libgralloc/utgard" remote="github" revision="86c71f4d77980f9364c8f5732e5326f5c43a7753"/>
+  <project name="android_hardware_rockchip_libgraphicpolicy" path="hardware/rockchip/libgraphicpolicy" remote="github" revision="deca46dbd76d00c4b1eeca02c2f20c92282dcc36"/>
+  <project name="android_hardware_rockchip_libhwjpeg" path="hardware/rockchip/libhwjpeg" remote="github" revision="a3094bc6ca3826403b920c3e30958bb171e7c396"/>
+  <project name="android_hardware_rockchip_libiep" path="hardware/rockchip/libiep" remote="github" revision="68e274cd748d1d0e0dcd52a3ead0ee7cb64819b1"/>
+  <project name="android_hardware_rockchip_libmemtrack" path="hardware/rockchip/libmemtrack" remote="github" revision="c591424c9c90a115d5498a19551fa40fb79bab81"/>
+  <project name="android_hardware_rockchip_libmpimmz" path="hardware/rockchip/libmpimmz" remote="github" revision="a5d8826aa891a0a7f557fdaf3a5d511c2a0657ef"/>
+  <project name="android_hardware_rockchip_librga" path="hardware/rockchip/librga" remote="github" revision="99ef9ebb8a9245f3b74dadeca5fb30a4e1e8f572"/>
+  <project name="android_hardware_rockchip_librkvpu" path="hardware/rockchip/librkvpu" remote="github" revision="c493d4d309ed3fcfdf4338d660462255aa3e50af"/>
+  <project name="android_hardware_rockchip_light_aidl" path="hardware/rockchip/light_aidl" remote="github" revision="f1f61e6eeefef0b0225c4bf3c619c111bb4124a3"/>
+  <project name="android_hardware_rockchip_omx_il" path="hardware/rockchip/omx_il" remote="github" revision="d0296387633c484a4ab679dc4fa4c2e28ef3ea25"/>
+  <project name="android_hardware_rockchip_optee" path="hardware/rockchip/optee" remote="github" revision="e5d0bc1667e5c97defb7bdfd657ee68fa9c02669"/>
+  <project name="android_hardware_rockchip_power_aidl" path="hardware/rockchip/power_aidl" remote="github" revision="f90089564e0ac2f9070582c638caf064a189053b"/>
+  <project name="android_hardware_rockchip_rknn_server" path="hardware/rockchip/rknn_server" remote="github" revision="246901059675469d275175a6292565aa45d00cb6"/>
+  <project name="android_hardware_rockchip_swiftshader" path="hardware/rockchip/swiftshader" remote="github" revision="654ef138c2357a596a16b7453a08627232a4d40c"/>
+  <project name="android_hardware_rockchip_sensor" path="hardware/rockchip/sensor" remote="github" revision="e7a2bbabafb1ab39325971fc90a2ca3594034bb6"/>
+  <project name="android_hardware_rockchip_thermal" path="hardware/rockchip/thermal" remote="github" revision="d35451a1bf94242a095ae3ea87133a19c4637a1e"/>
+  <project name="android_hardware_rockchip_weaver" path="hardware/rockchip/weaver" remote="github" revision="3ba9bbcebd9a95945e31823e59c9dfe17f1784e1"/>
   <project path="hardware/google/apf" name="platform/hardware/google/apf" groups="pdk" />
   <project path="hardware/google/av" name="platform/hardware/google/av" groups="pdk" />
   <project path="hardware/google/camera" name="platform/hardware/google/camera" groups="pdk" />
@@ -502,10 +558,8 @@
   <project path="hardware/google/interfaces" name="platform/hardware/google/interfaces" groups="pdk" />
   <project path="hardware/google/pixel" name="platform/hardware/google/pixel" groups="generic_fs,pixel" />
   <project path="hardware/google/pixel-sepolicy" name="platform/hardware/google/pixel-sepolicy" groups="generic_fs,pixel" />
-  <project path="hardware/interfaces" name="platform/hardware/interfaces" groups="pdk" />
   <project path="hardware/invensense" name="platform/hardware/invensense" groups="invensense,pdk" />
   <project path="hardware/knowles/athletico/sound_trigger_hal" name="platform/hardware/knowles/athletico/sound_trigger_hal" groups="coral,generic_fs" />
-  <project path="hardware/libhardware" name="platform/hardware/libhardware" groups="pdk" />
   <project path="hardware/libhardware_legacy" name="platform/hardware/libhardware_legacy" groups="pdk" />
   <project path="hardware/nxp/nfc" name="platform/hardware/nxp/nfc" groups="pdk" />
   <project path="hardware/nxp/secure_element" name="platform/hardware/nxp/secure_element" groups="pdk" />
@@ -564,16 +618,50 @@
   <project path="hardware/st/nfc" name="platform/hardware/st/nfc" groups="pdk" />
   <project path="hardware/st/secure_element" name="platform/hardware/st/secure_element" groups="pdk" />
   <project path="hardware/ti/am57x" name="platform/hardware/ti/am57x" groups="pdk" />
-  <project path="kernel/configs" name="kernel/configs" groups="vts,pdk" />
-  <project path="kernel/prebuilts/4.19/arm64" name="kernel/prebuilts/4.19/arm64" groups="pdk" clone-depth="1" />
-  <project path="kernel/tests" name="kernel/tests" groups="vts,pdk" />
+  <project name="android_mkcombinedroot" path="mkcombinedroot" remote="github" revision="8deaf0184a4cd0f6f6c5eb6886f4f9d0679f186e">
+    <linkfile dest="kernel/kernel/configs/android-11.config" src="configs/android-11.config"/>
+    <linkfile dest="kernel/kernel/configs/android-11-go.config" src="configs/android-11-go.config"/>
+    <linkfile dest="kernel/kernel/configs/non_debuggable.config" src="configs/non_debuggable.config"/>
+  </project>
+  <project name="android_packages_apps_Bluetooth" path="packages/apps/Bluetooth" remote="github" revision="e99f38398ce77357a7dca58ec072ac113a8e05fd"/>
+  <project name="android_packages_apps_Browser2" path="packages/apps/Browser2" remote="github" revision="37652f79d1a115bc2d920a68ad6846a23107c660"/>
+  <project name="android_packages_apps_Camera2" path="packages/apps/Camera2" remote="github" revision="6d55f91f8b0d2c435494d527e2d26ac59dc134c0"/>
+  <project name="android_packages_apps_DeskClock" path="packages/apps/DeskClock" remote="github" revision="b653712aefda4d94caf4570535d0729833280198"/>
+  <project name="android_packages_apps_DisplayAdjust" path="packages/apps/DisplayAdjust" remote="github" revision="b8a8a258729b0b027ef7d26bd202f279a4918b5c"/>
+  <project name="android_packages_apps_ExactCalculator" path="packages/apps/ExactCalculator" remote="github" revision="b653f041b24dd0120a1e5ef0e48a6490f350cad9"/>
+  <project name="android_packages_apps_Gallery2" path="packages/apps/Gallery2" remote="github" revision="b6197ae7b555686e34c1cd55b115ceaa521675e2"/>
+  <project name="android_packages_apps_Launcher3" path="packages/apps/Launcher3" remote="github" revision="6a39d9226434d48f52fdee4adeb487653d9e3ab9"/>
+  <project name="android_packages_apps_Music" path="packages/apps/Music" remote="github" revision="718379e3b244a0051b93ded2a70b2377634f1ea5"/>
+  <project name="android_packages_apps_QuickSearchBox" path="packages/apps/QuickSearchBox" remote="github" revision="e4cfbe279dd82ed587a20ab599f3ae6f55c4fc1f"/>
+  <project name="android_packages_apps_Settings" path="packages/apps/Settings" remote="github" revision="c108a8f6c3957743db11a39c3c94c8b81a5c0d53"/>
+  <project name="android_packages_apps_SoundRecorder" path="packages/apps/SoundRecorder" remote="github" revision="73cdfb7a9ab55943fc7c2c731d9464dbf6c5ddca"/>
+  <project name="android_packages_apps_TvSettings" path="packages/apps/TvSettings" remote="github" revision="1b4517998067448ff046c2416dd77a49348e842e"/>
+  <project name="android_packages_modules_NetworkStack" path="packages/modules/NetworkStack" remote="github" revision="e76ad905fa04a4845d945299d341cf5d575c88fb"/>
+  <project name="android_packages_providers_MediaProvider" path="packages/providers/MediaProvider" remote="github" revision="30e7d4efbeafb2b08248f9f192847f04fc2b88d5"/>
+  <project name="android_packages_screensavers_PhotoTable" path="packages/screensavers/PhotoTable" remote="github" revision="358ac1214aca08fef2f23295d872299a54628c42"/>
+  <project name="android_packages_wallpapers_LivePicker" path="packages/wallpapers/LivePicker" remote="github" revision="a78b0affc20f2d0606fddb1ad31e3e4978e657e1"/>
   <project path="libcore" name="platform/libcore" groups="pdk" />
   <project path="libnativehelper" name="platform/libnativehelper" groups="pdk" />
+  <project name="android_prebuilts_gcc_linux-x86_aarch64_gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu" path="prebuilts/gcc/linux-x86/aarch64/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu" remote="github" revision="f96f76d6be89a6e28d4dac1f233f9aca9921f69b"/>
+  <project name="android_prebuilts_gcc_linux-x86_arm_gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf" path="prebuilts/gcc/linux-x86/arm/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf" remote="github" revision="aaf9a4407686d84b085bf8feda450c5d63c3aa5e"/>
+  <project name="android_prebuilts_module_sdk_art" path="prebuilts/module_sdk/art" remote="github" revision="0a68152386e56eab7fce3813aca01301e197b17b"/>
+  <project name="android_rkbin" path="rkbin" remote="github" revision="1ea59cc63be187cec53fc167e729bd0c738f9637"/>
+  <project name="android_rkst" path="rkst" remote="github" revision="623a581694d6059a9dffcecd337de65b154d3c8d"/>
+  <project name="android_system_bt" path="system/bt" remote="github" revision="2167817aa8f38416dc5c4edb90d7098b8c1e5692"/>
+  <project name="android_system_core" path="system/core" remote="github" revision="100fb181b17884baf10c6bc1a5e31376f705a464"/>
+  <project name="android_system_extras" path="system/extras" remote="github" revision="d0be320cf345707b1a66e58d8535bda4f776f503"/>
+  <project name="android_system_media" path="system/media" remote="github" revision="4e4446a9d222e2b4c503cacff676e233b3f2b50a"/>
+  <project name="android_system_memory_libion" path="system/memory/libion" remote="github" revision="7fe188227619e36ca52b225dd0f65072737b2a96"/>
+  <project name="android_system_sepolicy" path="system/sepolicy" remote="github" revision="8067c8ca4d7dee58a64db32d03c3776f922e2ec7"/>
+  <project name="android_system_tools_release_tools" path="system/tools/release_tools" remote="github" revision="e8b81e460eebd5a430510f144de07d8fd3043156">
+    <copyfile dest="restore_patches.sh" src="restore_patches.sh"/>
+  </project>
+  <project name="android_system_vold" path="system/vold" remote="github" revision="e38363f4968e08f18941937b4ad24518435795dc"/>
+  <project name="android_vendor_rockchip_common" path="vendor/rockchip/common" remote="github" revision="606eecec10e0a42a37987c23c04a6d3575c41919"/>
+  <project name="android_vendor_rockchip_hardware" path="vendor/rockchip/hardware" remote="github" revision="327c3f425391ba9052d8ce6187a98e5df7e4d750"/>
+  <project name="android_vendor_widevine" path="vendor/widevine" remote="github" revision="3c088fdaf70185c3217b4c3fba6aef62b0e3700b"/>  
   <project path="packages/apps/BasicSmsReceiver" name="platform/packages/apps/BasicSmsReceiver" groups="pdk-cw-fs,pdk-fs" />
-  <project path="packages/apps/Bluetooth" name="platform/packages/apps/Bluetooth" groups="pdk-cw-fs,pdk-fs" />
-  <project path="packages/apps/Browser2" name="platform/packages/apps/Browser2" groups="pdk-fs" />
   <project path="packages/apps/Calendar" name="platform/packages/apps/Calendar" groups="pdk-fs" />
-  <project path="packages/apps/Camera2" name="platform/packages/apps/Camera2" groups="pdk-fs" />
   <project path="packages/apps/Car/Calendar" name="platform/packages/apps/Car/Calendar" groups="pdk-fs" />
   <project path="packages/apps/Car/Cluster" name="platform/packages/apps/Car/Cluster" groups="pdk-fs" />
   <project path="packages/apps/Car/Dialer" name="platform/packages/apps/Car/Dialer" groups="pdk-fs" />
@@ -595,20 +683,16 @@
   <project path="packages/apps/CellBroadcastReceiver" name="platform/packages/apps/CellBroadcastReceiver" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/apps/CertInstaller" name="platform/packages/apps/CertInstaller" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/apps/Contacts" name="platform/packages/apps/Contacts" groups="pdk-fs" />
-  <project path="packages/apps/DeskClock" name="platform/packages/apps/DeskClock" groups="pdk-fs" />
   <project path="packages/apps/DevCamera" name="platform/packages/apps/DevCamera" groups="pdk" />
   <project path="packages/apps/Dialer" name="platform/packages/apps/Dialer" groups="pdk-fs" />
   <project path="packages/apps/DocumentsUI" name="platform/packages/apps/DocumentsUI" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/apps/EmergencyInfo" name="platform/packages/apps/EmergencyInfo" groups="pdk-fs" />
   <project path="packages/apps/Gallery" name="platform/packages/apps/Gallery" groups="pdk-fs" />
-  <project path="packages/apps/Gallery2" name="platform/packages/apps/Gallery2" groups="pdk-fs" />
   <project path="packages/apps/HTMLViewer" name="platform/packages/apps/HTMLViewer" groups="pdk-fs" />
   <project path="packages/apps/KeyChain" name="platform/packages/apps/KeyChain" groups="pdk-fs" />
-  <project path="packages/apps/Launcher3" name="platform/packages/apps/Launcher3" groups="pdk-fs" />
   <project path="packages/apps/LegacyCamera" name="platform/packages/apps/LegacyCamera" groups="pdk-fs" />
   <project path="packages/apps/ManagedProvisioning" name="platform/packages/apps/ManagedProvisioning" groups="pdk-fs" />
   <project path="packages/apps/Messaging" name="platform/packages/apps/Messaging" groups="pdk-fs" />
-  <project path="packages/apps/Music" name="platform/packages/apps/Music" groups="pdk-fs" />
   <project path="packages/apps/MusicFX" name="platform/packages/apps/MusicFX" groups="pdk-fs" />
   <project path="packages/apps/Nfc" name="platform/packages/apps/Nfc" groups="apps_nfc,pdk-fs" />
   <project path="packages/apps/OnDeviceAppPrediction" name="platform/packages/apps/OnDeviceAppPrediction" groups="pdk-fs" />
@@ -617,14 +701,11 @@
   <project path="packages/apps/PhoneCommon" name="platform/packages/apps/PhoneCommon" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/apps/Protips" name="platform/packages/apps/Protips" groups="pdk-fs" />
   <project path="packages/apps/Provision" name="platform/packages/apps/Provision" groups="pdk-fs" />
-  <project path="packages/apps/QuickSearchBox" name="platform/packages/apps/QuickSearchBox" groups="pdk-fs" />
   <project path="packages/apps/QuickAccessWallet" name="platform/packages/apps/QuickAccessWallet" groups="pdk-fs" />
   <project path="packages/apps/SafetyRegulatoryInfo" name="platform/packages/apps/SafetyRegulatoryInfo" groups="pdk-fs" />
   <project path="packages/apps/SampleLocationAttribution" name="platform/packages/apps/SampleLocationAttribution" groups="pdk-fs" />
   <project path="packages/apps/SecureElement" name="platform/packages/apps/SecureElement" groups="apps_se,pdk-fs" />
-  <project path="packages/apps/Settings" name="platform/packages/apps/Settings" groups="pdk-fs" />
   <project path="packages/apps/SettingsIntelligence" name="platform/packages/apps/SettingsIntelligence" groups="pdk-fs" />
-  <project path="packages/apps/SoundRecorder" name="platform/packages/apps/SoundRecorder" groups="pdk-fs" />
   <project path="packages/apps/SpareParts" name="platform/packages/apps/SpareParts" groups="pdk-fs" />
   <project path="packages/apps/Stk" name="platform/packages/apps/Stk" groups="apps_stk,pdk-fs" />
   <project path="packages/apps/StorageManager" name="platform/packages/apps/StorageManager" groups="pdk-fs" />
@@ -635,7 +716,6 @@
   <project path="packages/apps/TimeZoneUpdater" name="platform/packages/apps/TimeZoneUpdater" groups="pdk" />
   <project path="packages/apps/ThemePicker" name="platform/packages/apps/ThemePicker" groups="pdk-fs" />
   <project path="packages/apps/Traceur" name="platform/packages/apps/Traceur" groups="pdk-fs" />
-  <project path="packages/apps/TvSettings" name="platform/packages/apps/TvSettings" groups="pdk-fs" />
   <project path="packages/apps/TV" name="platform/packages/apps/TV" groups="pdk" />
   <project path="packages/apps/UniversalMediaPlayer" name="platform/packages/apps/UniversalMediaPlayer" />
   <project path="packages/apps/WallpaperPicker" name="platform/packages/apps/WallpaperPicker" groups="pdk-fs" />
@@ -651,7 +731,6 @@
   <project path="packages/modules/IPsec" name="platform/packages/modules/IPsec" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/modules/ModuleMetadata" name="platform/packages/modules/ModuleMetadata" groups="pdk" />
   <project path="packages/modules/NetworkPermissionConfig" name="platform/packages/modules/NetworkPermissionConfig" groups="pdk-cw-fs,pdk-fs" />
-  <project path="packages/modules/NetworkStack" name="platform/packages/modules/NetworkStack" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/modules/SdkExtensions" name="platform/packages/modules/SdkExtensions" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/modules/TestModule" name="platform/packages/modules/TestModule" />
   <project path="packages/modules/vndk" name="platform/packages/modules/vndk" groups="pdk-cw-fs,pdk-fs" />
@@ -661,13 +740,11 @@
   <project path="packages/providers/CallLogProvider" name="platform/packages/providers/CallLogProvider" groups="pdk-fs" />
   <project path="packages/providers/ContactsProvider" name="platform/packages/providers/ContactsProvider" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/providers/DownloadProvider" name="platform/packages/providers/DownloadProvider" groups="pdk-cw-fs,pdk-fs" />
-  <project path="packages/providers/MediaProvider" name="platform/packages/providers/MediaProvider" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/providers/PartnerBookmarksProvider" name="platform/packages/providers/PartnerBookmarksProvider" groups="pdk-fs" />
   <project path="packages/providers/TelephonyProvider" name="platform/packages/providers/TelephonyProvider" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/providers/TvProvider" name="platform/packages/providers/TvProvider" groups="pdk-fs" />
   <project path="packages/providers/UserDictionaryProvider" name="platform/packages/providers/UserDictionaryProvider" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/screensavers/Basic" name="platform/packages/screensavers/Basic" groups="pdk-fs" />
-  <project path="packages/screensavers/PhotoTable" name="platform/packages/screensavers/PhotoTable" groups="pdk-fs" />
   <project path="packages/services/BuiltInPrintService" name="platform/packages/services/BuiltInPrintService" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/services/AlternativeNetworkAccess" name="platform/packages/services/AlternativeNetworkAccess" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/services/Car" name="platform/packages/services/Car" groups="pdk-cw-fs,pdk-fs" />
@@ -676,7 +753,6 @@
   <project path="packages/services/Telecomm" name="platform/packages/services/Telecomm" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/services/Telephony" name="platform/packages/services/Telephony" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/wallpapers/ImageWallpaper" name="platform/packages/wallpapers/ImageWallpaper" groups="pdk-fs" />
-  <project path="packages/wallpapers/LivePicker" name="platform/packages/wallpapers/LivePicker" groups="pdk-fs" />
   <project path="pdk" name="platform/pdk" groups="pdk" />
   <project path="platform_testing" name="platform/platform_testing" groups="pdk-fs,pdk-cw-fs,cts" />
   <project path="prebuilts/abi-dumps/ndk" name="platform/prebuilts/abi-dumps/ndk" groups="pdk-fs" clone-depth="1" />
@@ -717,7 +793,6 @@
   <project path="prebuilts/maven_repo/android" name="platform/prebuilts/maven_repo/android" groups="pdk-cw-fs,pdk-fs" clone-depth="1" />
   <project path="prebuilts/maven_repo/bumptech" name="platform/prebuilts/maven_repo/bumptech" groups="pdk-cw-fs,pdk-fs" clone-depth="1" />
   <project path="prebuilts/misc" name="platform/prebuilts/misc" groups="pdk" clone-depth="1" />
-  <project path="prebuilts/module_sdk/art" name="platform/prebuilts/module_sdk/art" groups="pdk" clone-depth="1" />
   <project path="prebuilts/ndk" name="platform/prebuilts/ndk" groups="pdk" clone-depth="1" />
   <project path="prebuilts/ktlint" name="platform/prebuilts/ktlint" groups="pdk" clone-depth="1" />
   <project path="prebuilts/python/darwin-x86/2.7.5" name="platform/prebuilts/python/darwin-x86/2.7.5" groups="darwin,pdk,pdk-cw-fs,pdk-fs" clone-depth="1" />
@@ -736,15 +811,12 @@
   <project path="prebuilts/vndk/v29" name="platform/prebuilts/vndk/v29" groups="pdk" clone-depth="1" />
   <project path="sdk" name="platform/sdk" groups="pdk-cw-fs,pdk-fs" />
   <project path="system/apex" name="platform/system/apex" groups="pdk" />
-  <project path="system/bt" name="platform/system/bt" groups="pdk" />
   <project path="system/bpf" name="platform/system/bpf" groups="pdk" />
   <project path="system/bpfprogs" name="platform/system/bpfprogs" groups="pdk" />
   <project path="system/ca-certificates" name="platform/system/ca-certificates" groups="pdk" />
   <project path="system/chre" name="platform/system/chre" groups="pdk" />
   <project path="system/connectivity/wificond" name="platform/system/connectivity/wificond" groups="pdk" />
   <project path="system/connectivity/wifilogd" name="platform/system/connectivity/wifilogd" groups="pdk" />
-  <project path="system/core" name="platform/system/core" groups="pdk" />
-  <project path="system/extras" name="platform/system/extras" groups="pdk" />
   <project path="system/gatekeeper" name="platform/system/gatekeeper" groups="pdk" />
   <project path="system/gsid" name="platform/system/gsid" groups="pdk" />
   <project path="system/hardware/interfaces" name="platform/system/hardware/interfaces" groups="pdk" />
@@ -760,8 +832,6 @@
   <project path="system/libufdt" name="platform/system/libufdt" groups="pdk" />
   <project path="system/libvintf" name="platform/system/libvintf" groups="pdk" />
   <project path="system/linkerconfig" name="platform/system/linkerconfig" groups="pdk" />
-  <project path="system/media" name="platform/system/media" groups="pdk" />
-  <project path="system/memory/libion" name="platform/system/memory/libion" groups="pdk" />
   <project path="system/memory/libmeminfo" name="platform/system/memory/libmeminfo" groups="pdk" />
   <project path="system/memory/libmemtrack" name="platform/system/memory/libmemtrack" groups="pdk" />
   <project path="system/memory/libmemunreachable" name="platform/system/memory/libmemunreachable" groups="pdk" />
@@ -770,7 +840,6 @@
   <project path="system/nfc" name="platform/system/nfc" groups="pdk" />
   <project path="system/nvram" name="platform/system/nvram" groups="pdk" />
   <project path="system/security" name="platform/system/security" groups="pdk" />
-  <project path="system/sepolicy" name="platform/system/sepolicy" groups="pdk" />
   <project path="system/server_configurable_flags" name="platform/system/server_configurable_flags" groups="pdk"/>
   <project path="system/teeui" name="platform/system/teeui" groups="pdk" />
   <project path="system/testing/gtest_extras" name="platform/system/testing/gtest_extras" groups="pdk" />
@@ -781,7 +850,6 @@
   <project path="system/tools/sysprop" name="platform/system/tools/sysprop" groups="pdk" />
   <project path="system/tools/xsdc" name="platform/system/tools/xsdc" groups="pdk" />
   <project path="system/update_engine" name="platform/system/update_engine" groups="pdk" />
-  <project path="system/vold" name="platform/system/vold" groups="pdk" />
   <project path="test/framework" name="platform/test/framework" groups="vts,projectarch,pdk" />
   <project path="test/mlts/benchmark" name="platform/test/mlts/benchmark" groups="pdk" />
   <project path="test/mlts/models" name="platform/test/mlts/models" groups="pdk" />
@@ -832,7 +900,7 @@
   <project path="tools/tradefederation/contrib" name="platform/tools/tradefederation/contrib" groups="pdk,tradefed" />
   <project path="tools/treble" name="platform/tools/treble" groups="tools,pdk" />
   <project path="tools/trebuchet" name="platform/tools/trebuchet" groups="tools,cts,pdk,pdk-cw-fs,pdk-fs" />
-
+  <project name="u-boot" remote="github" revision="7eca72f31f12651b24d526bae5fe4b1811543b49"/>
   <repo-hooks in-project="platform/tools/repohooks" enabled-list="pre-upload" />
 
 </manifest>
