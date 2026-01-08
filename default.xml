@@ -29,6 +29,10 @@
   <project path="art" name="platform/art" groups="pdk" />
   <project name="android_bionic" path="bionic" remote="github" revision="2ef550b74e1a2cb25e9a990eb1f6ed07da813720"/>
   <project path="bootable/recovery" name="android_bootable_recovery" remote="github" revision="5ea77a99f252383ff5ed30087acf0181f5b57f7f" />
+  <project path="bootable/recovery/mtdutils" name="android_bootable_recovery_mtdutils" remote="github" revision="9fc87c1ee151af1cc4bef5d6daa85ff571621ba6" />
+  <project path="bootable/recovery/pcba_core" name="android_bootable_recovery_pcba_core" remote="github" revision="1f861fa5eb09424ac0b78348b13b03ea664db000" />
+  <project path="bootable/recovery/rkupdate" name="android_bootable_recovery_rkupdate" remote="github" revision="469c3dae47b95c83f90dca06e1672617a727098b" />
+  <project path="bootable/recovery/rkutility" name="android_bootable_recovery_rkutility" remote="github" revision="8d5f8d4a56559a342906c4e998f8fa4a5336fad5" />
   <project path="compatibility/cdd" name="platform/compatibility/cdd" groups="pdk" />
   <project path="cts" name="platform/cts" groups="cts,pdk-cw-fs,pdk-fs" />
   <project path="dalvik" name="platform/dalvik" groups="pdk-cw-fs,pdk-fs" />
