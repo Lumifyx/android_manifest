@@ -26,6 +26,7 @@
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
   <project name="linux" path="kernel" remote="github" revision="259ebdeab84868c1b1a41506249e766b9239c33e"/>
+  <project name="linux_configs" path="kernel/configs" remote="github" revision="a8eb7feb6f426a04fe3c0715f58c2803dd2a01b8"/>
   <project path="art" name="platform/art" groups="pdk" />
   <project name="android_bionic" path="bionic" remote="github" revision="2ef550b74e1a2cb25e9a990eb1f6ed07da813720"/>
   <project path="bootable/recovery" name="android_bootable_recovery" remote="github" revision="5ea77a99f252383ff5ed30087acf0181f5b57f7f" />
