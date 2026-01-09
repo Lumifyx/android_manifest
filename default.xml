@@ -106,7 +106,7 @@
   <project path="device/sample" name="device/sample" groups="pdk" />
   <project path="device/ti/beagle_x15" name="device/ti/beagle-x15" groups="device,beagle_x15,pdk" />
   <project path="device/ti/beagle_x15-kernel" name="device/ti/beagle-x15-kernel" groups="device,beagle_x15,pdk" clone-depth="1" />
-  <project name="android_device_lumifyx_common" path="device/lumifyx/common" remote="github" revision="39c0aa1df0a0f120d40109e3d99c2ee8c69b538d">
+  <project name="android_device_lumifyx_common" path="device/lumifyx/common" remote="github" revision="85cae61acebef186749cc8d93b4ba28bbe38f0ef">
     <copyfile dest=".classpath" src=".classpath"/>
     <copyfile dest="mkimage.sh" src="mkimage.sh"/>
     <copyfile dest="javaenv.sh" src="javaenv.sh"/>
