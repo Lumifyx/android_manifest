@@ -114,6 +114,7 @@
     <copyfile dest="mkimage_ab.sh" src="mkimage_ab.sh"/>
   </project>
   <project name="android_device_lumifyx_rk356x_box" path="device/lumifyx/rk356x_box" remote="github" revision="c403cd1c45ed1c50f35b8c825cf7df44222e2e36"/>
+  <project name="android_device_lumifyx_rk356x_tablet" path="device/lumifyx/rk356x" remote="github" revision="59773871d9304ece271c3893c521b02e1a687177"/>
   <project name="android_external_abc" path="external/abc" remote="github" revision="59952887d96231c09fc2bd1e0be0659f40cd40ab"/>
   <project name="android_external_camera_engine_rkaiq" path="external/camera_engine_rkaiq" remote="github" revision="4a2ad0f46a8a96365ea7ad371ebbf121dfb69f66"/>
   <project name="android_external_e2fsprogs" path="external/e2fsprogs" remote="github" revision="09e3457a5c3998687e452cafb150b30a9c5d667f"/>
